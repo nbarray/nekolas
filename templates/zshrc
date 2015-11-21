@@ -16,7 +16,6 @@ export SAVEHIST=$HISTSIZE
 
 export PYTHONPATH=$PYTHONPATH:/home/$USER/Lib/drake/src
 export PATH=$PATH:/home/$USER/Lib/drake/src/bin
-
 export PATH=$PATH:/home/$USER/Lib/sublime-text-2/
 
 ### ############### ###
