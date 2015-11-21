@@ -13,7 +13,11 @@ cp templates/vimrc ~/.vimrc
 # vim +PluginInstallq
 
 echo 'vim: add color scheme file'
+mkdir -p ~/.vim/colors/
 cp templates/jellybeans.vim ~/.vim/colors/
 
 echo 'copy gitconfig'
 cp templates/gitconfig ~/.gitconfig
+
+echo 'copy zshrc'
+cp templates/zshrc ~/.zshrc

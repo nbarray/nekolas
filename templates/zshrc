@@ -1,0 +1,68 @@
+### ###################### ###
+##     ZSH configuration    ##
+##                          ##
+##  Author: Nicolas Barray  ##
+### ###################### ###
+
+### ############## ###
+##  export Section  ##
+### ############## ###
+
+export EDITOR="vim"
+export PROMPT="%F{green}%n%f at %F{blue}%m%f in %~ %(1j.%%%j .)%(0?.%F{yellow}\_o<.%F{red}\_è<)%f "
+export HISTSIZE=42000
+export HISTFILE="$HOME/.history"
+export SAVEHIST=$HISTSIZE
+
+export PYTHONPATH=$PYTHONPATH:/home/$USER/Lib/drake/src
+export PATH=$PATH:/home/$USER/Lib/drake/src/bin
+
+export PATH=$PATH:/home/$USER/Lib/sublime-text-2/
+
+### ############### ###
+##  General Section  ##
+### ############### ###
+
+function check_ssh {
+  [[ $3 =~ '\bssh\b' ]] || return
+  [[ -n "$SSH_AGENT_PID" && -e "/proc/$SSH_AGENT_PID" ]] \
+    && ssh-add -l >/dev/null && return
+  eval `ssh-agent` && ssh-add
+}
+autoload -U add-zsh-hook
+add-zsh-hook preexec check_ssh
+
+autoload -U compinit
+compinit
+
+setopt autocd
+
+# Use '_' to autocomplete it faster
+alias _resource='source ~/.zshrc'
+
+setxkbmap -option compose:ralt
+
+### ################### ###
+##  Key binding Section  ##
+### ################### ###
+
+# Set emacs-like shortcuts on the readline
+bindkey -e
+
+### ############# ###
+##  Alias Section  ##
+### ############# ###
+
+alias ls='ls --color'
+alias mkdir='mkdir -p'
+alias rm='rm -rf'
+alias sshk='ssh -A nekolas@91.121.91.184'
+
+### ####### ###
+##  Infinit  ##
+### ####### ###
+alias bekill="kill `ps aux | grep 'beyond/bin/beyond' | grep -v 'grep' | awk '{print $2}'`"
+alias berun="./beyond/bin/beyond --couchdb-directory couchdb/ --couchdb-port 8081"
+
+export INFINIT_RDV=
+export INFINIT_BEYOND=localhost:8080
