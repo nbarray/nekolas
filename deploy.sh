@@ -16,4 +16,4 @@ echo 'vim: add color scheme file'
 cp templates/jellybeans.vim ~/.vim/colors/
 
 echo 'copy gitconfig'
-cp templates/gitconfig ~/.vimrc
+cp templates/gitconfig ~/.gitconfig
