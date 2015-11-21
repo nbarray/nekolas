@@ -1,0 +1,99 @@
+" Vim configuration
+"
+" Authors: Nicolas Barray
+"
+"
+" Vundle {
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+
+set laststatus=2 " always show the status bar
+let g:airline_powerline_fonts = 1 " populate the g:airline_symbols dict
+
+Plugin 'bronson/vim-trailing-whitespace'
+
+Plugin 'rking/ag.vim'
+" --- type ` to search the word in all files in the current dir
+nmap ` :Ag <c-r>=expand("<cword>")<cr><cr>
+" This whitespace is normal
+nnoremap <space>/ :Ag 
+
+Plugin 'junegunn/vim-easy-align'
+" Easy align interactive
+vnoremap <silent> <Enter> :EasyAlign<cr>
+
+Plugin 'tpope/vim-dispatch.git'
+
+call vundle#end()
+
+" }
+
+" General {
+
+filetype plugin indent on " Load syntax plugins
+syntax on
+colorscheme jellybeans
+" colorscheme antares
+
+" associate drakefile with python filetype
+au BufRead,BufNewFile drakefile setfiletype python
+" associate *.{cc,hh}.tmpl with cpp filetype
+au BufRead,BufNewFile *.cc.tmpl setfiletype cpp
+au BufRead,BufNewFile *.hh.tmpl setfiletype cpp
+
+set ruler
+set number
+set hlsearch
+
+" Avoid *.swp files
+set noswapfile
+
+set scrolloff=10
+" }
+
+" Formatting {
+
+set expandtab " Spaces instead of tabulations
+set tabstop=2 " Length of a tabulation
+set shiftwidth=2 " Number of spaces inserted by < and >
+set softtabstop=2 " Number of spaces when hitting TAB
+set smarttab " Use shiftwidth when tabbing manually
+
+set autoindent
+set cindent
+
+set wrap
+set linebreak
+set textwidth=79
+set colorcolumn=+1
+
+" }
+
+" Spelling {
+
+" set spell
+" setlocal spell spelllang=en_us
+
+" }
+"
+" Workflow {
+
+" Switch from a buffer to another with Ctrl-P and Ctrl-N
+nmap <C-N> :bn<CR>
+nmap <C-A> :Ack
+" Ctrl-P look up to the first directory containing a .git
+let g:ctrlp_working_path_mode = 'r'
+
+" }
+
+" Plugins {
+
+
+" }
