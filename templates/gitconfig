@@ -1,0 +1,15 @@
+[user]
+	email = nicolas.barray@infinit.io
+  name = Nicolas Barray
+
+[alias]
+  st = status
+  co = checkout
+  ci = commit
+  pr = pull --rebase
+  lg = log --color --graph --all --pretty=format:'%Cred%h%Creset-%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+  br = branch
+  d = diff
+  ps = push
+[push]
+	default = simple
